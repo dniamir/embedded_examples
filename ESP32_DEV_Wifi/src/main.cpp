@@ -1,3 +1,6 @@
+// Wifi example, based on (includes explanation)
+// https://randomnerdtutorials.com/esp32-web-server-arduino-ide/
+
 // Load Wi-Fi library
 #include <WiFi.h>
 
