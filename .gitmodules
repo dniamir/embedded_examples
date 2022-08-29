@@ -1,0 +1,3 @@
+[submodule "ESP32_DEV_E-INK/lib/GxEPD"]
+	path = ESP32_DEV_E-INK/lib/GxEPD
+	url = https://github.com/ZinggJM/GxEPD
