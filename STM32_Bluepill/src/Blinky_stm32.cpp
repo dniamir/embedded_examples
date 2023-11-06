@@ -1,4 +1,3 @@
-// Spent a lot of time trying to set this up, couldn't get it to work
 // 10/29/2023
 #include "stm32f1xx_hal.h"
 
@@ -11,20 +10,28 @@ void LED_Init();
 void SystemClock_Config();
 void Error_Handler();
 
+
 int main(void) {
-    // Initialize the Hardware Abstraction Layer
-    HAL_Init();
+
     SystemClock_Config();
+
+    // This will configure the SysTick to interrupt every millisecond (1/1000th of a second)
+    if (HAL_SYSTICK_Config(SystemCoreClock / 1000) != HAL_OK) {
+        Error_Handler();
+    }
     
     // Initialize the LED
     LED_Init();
 
+    // __enable_irq();
+
     while (1) {
+
         // Toggle the LED
         HAL_GPIO_TogglePin(LED_GPIO_PORT, LED_PIN);
         
         // Wait for a short period (500ms)
-        HAL_Delay(500);
+        HAL_Delay(50);
     }
 }
 
@@ -75,11 +82,11 @@ void SystemClock_Config(void) {
 void Error_Handler(void) {
     while(1) {
         HAL_GPIO_TogglePin(LED_GPIO_PORT, LED_PIN);
-        HAL_Delay(100);
+        // HAL_Delay(100);
     }
 }
 
 // SysTick_Handler is called by the SystemTick ISR and increments a tick counter in HAL
-void SysTick_Handler(void) {
+extern "C" void SysTick_Handler(void) {
     HAL_IncTick();
 }
