@@ -7,9 +7,9 @@ void setup() {
 
 void loop() {
   digitalWrite(LED_BUILTIN, LOW);   // Turn the LED on (Note: LOW is the voltage level for turning on the built-in LED on Blue Pill)
-  delay(100);
+  delay(500);
   Serial.println("Test1");
 
   digitalWrite(LED_BUILTIN, HIGH);    // Turn the LED off by making the voltage HIGH (Note: this is because the LED is active-low on the Blue Pill)
-  delay(100);
+  delay(500);
 }
