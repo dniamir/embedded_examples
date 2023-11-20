@@ -2,3 +2,5 @@ STM32 Bluepill/lib/FreeRTOS/
 STM32_Bluepill/lib/FreeRTOS/
 STM32_Bluepill/output.map
 libopencm3-blink/.pio/
+.pio
+.vscode
