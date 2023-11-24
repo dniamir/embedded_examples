@@ -1,7 +1,5 @@
 #include <Arduino.h>
 
-// HardwareSerial Serial(PA10, PA9);
-
 void setup() {
   Serial.begin(19200);  // Does not work with clock speed of 9600 - PA2 is output
   pinMode(LED_BUILTIN, OUTPUT);  // Initialize the LED_BUILTIN pin as an output

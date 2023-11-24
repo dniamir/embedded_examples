@@ -8,6 +8,9 @@ const byte WHO_AM_I_REGISTER = 0xD0;
 int I2C_SDA = PB7;
 int I2C_SCL = PA15;
 
+// Initialize ADC
+const int analogInput = PA0;
+
 // I2C1:
 // SDA: PA14, PB7
 // SCL: PA13, PA15, PB8
@@ -18,6 +21,9 @@ int I2C_SCL = PA15;
 // SDA: PF0-OSC-IN, PA8
 // SCL: PA9
 // Can't get I2C2 to work with Wire
+
+// ADC
+
 
 
 // Declare and define the readRegister function before setup
@@ -48,6 +54,7 @@ byte readRegister(byte address, byte reg) {
 void setup() {
   Serial.begin(19200);  // Does not work with clock speed of 9600 - PA2 is output
   pinMode(LED_BUILTIN, OUTPUT);
+  pinMode(analogInput, INPUT_ANALOG); // Set PA0 as analog input
   Wire.setSDA(I2C_SDA);
 	Wire.setSCL(I2C_SCL);
   Wire.begin();
@@ -66,4 +73,7 @@ void loop() {
 
   digitalWrite(LED_BUILTIN, HIGH);    // Turn the LED off by making the voltage HIGH (Note: this is because the LED is active-low on the Blue Pill)
   delay(100);
+
+  int analogVal = analogRead(analogInput);
+  Serial.println(analogVal);
 }
