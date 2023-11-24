@@ -1,6 +1,0 @@
-{
-    "files.associations": {
-        "rcc.h": "c",
-        "gpio.h": "c"
-    }
-}

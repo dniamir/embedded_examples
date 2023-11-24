@@ -1,4 +1,0 @@
-h
-loadbin .pio\build\bluepill_f103c8\firmware.bin, 0x08000000
-r
-q
